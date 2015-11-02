@@ -1,6 +1,6 @@
 #region MIT/X11 License
 
-//Copyright © 2003-2012 Axiom 3D Rendering Engine Project
+//Copyright Â© 2003-2012 Axiom 3D Rendering Engine Project
 //
 //Permission is hereby granted, free of charge, to any person obtaining a copy
 //of this software and associated documentation files (the "Software"), to deal
@@ -47,7 +47,7 @@ using DX = SharpDX;
 namespace Axiom.RenderSystems.DirectX9
 {
 	/// <summary>
-	/// Should we ask D3D to manage vertex/index buffers automatically?
+	/// Should we ask D3D to manage vertex/index buffers automatically?_updateBufferResources
 	/// Doing so avoids lost devices, but also has a performance impact
 	/// which is unacceptably bad when using very large buffers
 	/// </summary>
@@ -365,7 +365,7 @@ namespace Axiom.RenderSystems.DirectX9
 				throw new AxiomException( "Cannot lock D3D9 vertex buffer!", ex );
 			}
 
-			var src = systemMemoryBuffer.Offset( bufferResources.LockOffset );
+			var src = systemMemoryBuffer + bufferResources.LockOffset;//.Offset( bufferResources.LockOffset );
 			{
 				using ( var dest = BufferBase.Wrap( dstBytes.DataPointer, bufferResources.LockLength ) )
 				{
